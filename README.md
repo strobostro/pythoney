@@ -24,14 +24,20 @@ Install a MySQL server and create the pythoney database ("source db.sql").
 
 # how to run
 ~/Pythoney$ sudo python pythoney.py -h
-usage: pythoney.py [-h] geodbpath serverip log_other
-
-positional arguments:
+  
+  usage: pythoney.py [-h] geodbpath serverip log_other
+  
+  positional arguments:
+  
   geodbpath   file path to the GeoLite2-Country database
+  
   serverip    IP of the interface to which services will be bounded
+  
   log_other   switch to instruct pythoney to log connection to static services
 
-optional arguments:
+
+  optional arguments:
+  
   -h, --help  show this help message and exit
   
 In addition to database logging, pythoney outputs some information on the standard output.

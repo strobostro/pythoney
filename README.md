@@ -1,7 +1,7 @@
 # pythoney
 A simple tool to create passive honeypots.
 
-The basic idea behind pythoney is to dynamically open TCP listener when a port is requested.
+The basic idea behind pythoney is to dynamically open a TCP listener when a port is requested.
 
 Pythoney (pythoney.py) is based on iptables nfqueue and scapy :
   - nfqueue delegates filtering decisions to a userland program

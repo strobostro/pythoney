@@ -20,7 +20,7 @@ def print_and_accept(pkt):
                 if flag == 'S':
                         honeyport = p[TCP].dport
                         if (honeyport not in dyn_ports and honeyport not in static_ports):
-                                subprocess.Popen(["python", "/home/honeydrive/Pythoney/server2.py", listen_addr, str(honeyport), geoip])
+                                subprocess.Popen(["python", "/home/honeydrive/Pythoney/server.py", listen_addr, str(honeyport), geoip])
                                 dyn_ports.add(honeyport)
                                 time.sleep(0.5)
                         else:

@@ -24,7 +24,7 @@ while True:
                 while True:
                         data = connection.recv(1024)
                         if data:
-                                insert_into_db(sys.argv[2], client_addr[0], country, str(client_addr[1]), +str(data))
+                                insert_into_db(sys.argv[2], client_addr[0], country, str(client_addr[1]), str(data))
                                 print data
                                 u = url.match(data)
                                 if u != None:

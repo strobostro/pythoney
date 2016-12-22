@@ -42,12 +42,19 @@ GeoDB = < some_path >
 
 # how to run
 :~/Pythoney$ sudo python pythoney.py 
+
 binding socket on port: 7547
+
 waiting for connection
+
 binding socket on port: 5555
+
 waiting for connection
+
 connection from: (< ip >, 26437) country:  CZ on port: 1234
+
 connection from: (< ip >, 26438) country:  CZ on port: 5678
+
   
 In addition to database logging, pythoney outputs some information on the standard output.
 

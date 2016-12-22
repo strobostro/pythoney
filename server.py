@@ -1,10 +1,7 @@
 import socket
 import sys
-import geoip2.database, _mysql,re
-
-geodb = geoip2.database.Reader(sys.argv[3])
-
-db=_mysql.connect(host="localhost",user="pythoney",passwd="pythoney",db="pythoney")
+import re
+from utils import *
 
 url = re.compile(r".*(http\:\/\/.*?)[\;\s]")
 
@@ -21,21 +18,14 @@ while True:
         print "waiting for connection"
         connection, client_addr = sock.accept()
         try:
-                try:
-                        country = geodb.country(client_addr[0]).country.iso_code
-                except geoip2.errors.AddressNotFoundError:
-                        country = "Unknown"
+                country = get_country(client_addr[0])
                 print "connection from:", client_addr, "country: ", country, "on port:", sys.argv[2]
-                query = "insert into connections (time, server_port, source_address, source_country, source_port) values (now(), "+sys.argv[2]+", '"+client_addr[0]+"', '"+country+"', "+str(client_addr[1])+")"
-                db.query(query)
-                db.store_result()
+                insert_into_db(sys.argv[2], client_addr[0], country, str(client_addr[1]), "")
                 while True:
                         data = connection.recv(1024)
                         if data:
-                                query = "insert into connections (time, server_port, source_address, source_country, source_port, data) values (now(), "+sys.argv[2]+", '"+client_addr[0]+"', '"+country+"', "+str(client_addr[1])+", '"+data+"')"
+                                insert_into_db(sys.argv[2], client_addr[0], country, str(client_addr[1]), +str(data))
                                 print data
-                                db.query(query)
-                                db.store_result()
                                 u = url.match(data)
                                 if u != None:
                                         print "found URL:", u.groups()[0]

@@ -26,7 +26,6 @@ def get_static_ports():
         ports = conf.get("honeyconf","StaticPorts")
         for port in ports.split(","):
                 static_ports.add(int(port))
-        print static_ports
         return static_ports
 
 def get_log_others():

@@ -15,10 +15,10 @@ The default TCP listener (server.py) opens a socket on the requested port and st
 
 # installation
 Get all necessary python dependencies:
-  - netfilterqueue
-  - geoip2.database 
-  - mysql connector
-  - scapy
+  - netfilterqueue (http://pypi.python.org/packages/source/N/NetfilterQueue/NetfilterQueue-0.3.tar.gz)
+  - geoip2.database (python-geoip on Debian GNU Linux) + country database (http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz)
+  - mysql connector (python-mysqldb on Debian GNU Linux)
+  - scapy (python-scapy on Debian GNU Linux)
   
 Install a MySQL server and create the pythoney database ("source db.sql").
 

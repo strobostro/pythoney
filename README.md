@@ -45,43 +45,68 @@ GeoDB = < some_path >
   
 In addition to database logging, pythoney outputs some information on the standard output.
 
-honeydrive@honeydrive:~/Pythoney$ mysql -u pythoney -p -D pythoney
+:~/Pythoney$ mysql -u pythoney -p -D pythoney
+
 Enter password: 
+
 [...]
+
 mysql> desc connections;
+
 +----------------+---------------+------+-----+-------------------+-----------------------------+
+
 | Field          | Type          | Null | Key | Default           | Extra                       |
+
 +----------------+---------------+------+-----+-------------------+-----------------------------+
+
 | id             | int(11)       | NO   | PRI | NULL              | auto_increment              |
+
 | time           | timestamp     | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
+
 | server_port    | int(11)       | YES  |     | NULL              |                             |
+
 | source_address | varchar(16)   | YES  |     | NULL              |                             |
+
 | source_country | varchar(8)    | YES  |     | NULL              |                             |
+
 | source_port    | int(11)       | YES  |     | NULL              |                             |
+
 | data           | varchar(1024) | YES  |     | NULL              |                             |
+
 +----------------+---------------+------+-----+-------------------+-----------------------------+
+
 7 rows in set (0.02 sec)
 
 mysql> select count(*) from connections;
+
 +----------+
+
 | count(*) |
+
 +----------+
+
 |      201 |
+
 +----------+
+
 1 row in set (0.00 sec)
 
+
 mysql> select distinct(source_country) from connections;
+
+
 +----------------+
+
 | source_country |
+
 +----------------+
+
 | TR             |
+
 | TW             |
+
 | PR             |
+
 | TH             |
-| VN             |
-| MX             |
-| PL             |
-| IN             |
+
 [...]
-
-
